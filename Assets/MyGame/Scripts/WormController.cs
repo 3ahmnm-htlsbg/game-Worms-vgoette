@@ -10,13 +10,9 @@ public class WormController : MonoBehaviour
     public GameObject bazooka;
     public float shoot = 100;
     public Transform bulletPosition;
+    public Vector3 jump;
+    public Vector3 move;
 
-
-    void Start ()
-    {
-        rb = GetComponent<Rigidbody>();
-
-    }
 
     void Update()
     {
@@ -24,19 +20,21 @@ public class WormController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            rb.AddForce(transform.right * Speed);
-            rb.AddForce(transform.up * Speed);
+            rb.AddForce(move);
+            rb.AddForce(jump);
+
         }
 
-       if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            rb.AddForce(-transform.right * Speed);
-            rb.AddForce(transform.up * Speed);
+            rb.AddForce(-move);
+            rb.AddForce(jump);
+
         }
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            rb.AddForce(transform.up * Speed);
+            rb.AddForce (jump);
         }
 
 
@@ -46,7 +44,17 @@ public class WormController : MonoBehaviour
             sphere.GetComponent<Rigidbody>().AddForce(bazooka.transform.up * shoot);
         }
 
+        if (Input.GetKey(KeyCode.Q))
+        {
+            bazooka.transform.Rotate(0, 0, -5, Space.Self);
+            Debug.Log("Button Input detected");
+        }
 
+        if (Input.GetKey(KeyCode.E))
+        {
+            bazooka.transform.Rotate(0, 0, 5, Space.Self);
+            Debug.Log("Button Input detected");
+        }
     }
 
     
