@@ -4,51 +4,47 @@ using UnityEngine;
 
 public class WormController : MonoBehaviour
 {
-    public int x;
-    public string text;
-    public float finish;
+    public Rigidbody rb;
+    public float Speed;
 
-    // Start is called before the first frame update
-    void Start()
+    void Start ()
     {
-        /*
-        if(x>0)
-        {
-            Debug.Log("x ist größer als 0");
-            
-        }
-        else
-        {
-            Debug.Log("x ist kleiner als 0");
-        }
-
-
-
-
-        if (text == "HEWO")
-        {
-            Debug.Log("it be hewo");
-        }
-        else
-        {
-            Debug.Log("pls helo");
-        }
-        */
-
-        if (finish > 10)
-        {
-            Debug.Log("number is bigger than 10");
-        }
-
-        else
-        {
-            Debug.Log("number is smaller than 10");
-        }
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //transform Player
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            rb.AddForce(transform.right * Speed);
+            rb.AddForce(transform.up * Speed);
+        }
+
+       if (Input.GetKeyDown(KeyCode.A))
+        {
+            rb.AddForce(-transform.right * Speed);
+            rb.AddForce(transform.up * Speed);
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            rb.AddForce(transform.up * Speed);
+        }
+
+        
         
     }
+
+    
+
+
+    /*void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Wird aufgerufen!");
+        }
+    }*/
 }
