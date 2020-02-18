@@ -6,10 +6,16 @@ public class WormController : MonoBehaviour
 {
     public Rigidbody rb;
     public float Speed;
+    public GameObject weapon;
+    public GameObject bazooka;
+    public float shoot = 100;
+    public Transform bulletPosition;
+
 
     void Start ()
     {
         rb = GetComponent<Rigidbody>();
+
     }
 
     void Update()
@@ -33,8 +39,14 @@ public class WormController : MonoBehaviour
             rb.AddForce(transform.up * Speed);
         }
 
-        
-        
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject sphere = Instantiate(weapon, bulletPosition.position, Quaternion.identity);
+            sphere.GetComponent<Rigidbody>().AddForce(bazooka.transform.up * shoot);
+        }
+
+
     }
 
     
