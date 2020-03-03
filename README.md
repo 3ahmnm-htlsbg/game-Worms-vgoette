@@ -21,7 +21,9 @@ WebGL
 /
 
 ### Limitations: 
-/
+- canon shoots the ball in only one direction
+- the movement of he player is weird
+- What are Quaternions? help
 
 ### Lessons Learned: 
 /
