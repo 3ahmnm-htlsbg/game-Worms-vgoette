@@ -15,15 +15,13 @@ WebGL
 /
 
 ### Third party material: 
-/
+- i looked at some of the other students projects for reference
 
 ### Project State:
-/
+- 100% (?)
 
 ### Limitations: 
-- canon shoots the ball in only one direction
-- the movement of he player is weird
-- What are Quaternions? help
+- the movement of the player is weird; he starts "flying" when jumping too much
 
 ### Lessons Learned: 
 /
