@@ -9,7 +9,7 @@ public class WormController : MonoBehaviour
     public float Speed;
     public GameObject weapon;
     public GameObject bazooka;
-    public float shoot = 100;
+    public float shoot = 500;
     public Transform bulletPosition;
     public Vector3 jump;
     public Vector3 move;
