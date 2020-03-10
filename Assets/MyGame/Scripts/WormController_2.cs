@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WormController : MonoBehaviour
+public class WormController_2 : MonoBehaviour
 {
     public Rigidbody rb;
     public float Speed;
@@ -21,39 +21,39 @@ public class WormController : MonoBehaviour
     {
         //transform Player
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             rb.AddForce(move);
             rb.AddForce(jump);
 
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             rb.AddForce(-move);
             rb.AddForce(jump);
 
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             rb.AddForce(jump);
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             GameObject sphere = Instantiate(weapon, bulletPosition.position, Quaternion.identity);
             sphere.GetComponent<Rigidbody>().AddForce(bazooka.transform.up * shoot);
         }
 
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.U))
         {
             bazooka.transform.Rotate(0, 0, -5, Space.Self);
             Debug.Log("Button Input detected");
         }
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.O))
         {
             bazooka.transform.Rotate(0, 0, 5, Space.Self);
             Debug.Log("Button Input detected");
