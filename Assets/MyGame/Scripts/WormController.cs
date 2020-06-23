@@ -9,7 +9,7 @@ public class WormController : MonoBehaviour
     public float Speed;
     public GameObject weapon;
     public GameObject bazooka;
-    public float shoot = 500;
+    public float shoot = 100;
     public Transform bulletPosition;
     public Vector3 jump;
     public Vector3 move;
@@ -44,18 +44,18 @@ public class WormController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject sphere = Instantiate(weapon, bulletPosition.position, Quaternion.identity);
-            sphere.GetComponent<Rigidbody>().AddForce(bazooka.transform.up * shoot);
+            sphere.GetComponent<Rigidbody>().AddForce(bazooka.transform.forward * shoot);
         }
 
         if (Input.GetKey(KeyCode.Q))
         {
-            bazooka.transform.Rotate(0, 0, -5, Space.Self);
+            bazooka.transform.Rotate(-5, 0, 0, Space.Self);
             Debug.Log("Button Input detected");
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            bazooka.transform.Rotate(0, 0, 5, Space.Self);
+            bazooka.transform.Rotate(5, 0, 0, Space.Self);
             Debug.Log("Button Input detected");
         }
 

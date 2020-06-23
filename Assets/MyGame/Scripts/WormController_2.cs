@@ -49,13 +49,13 @@ public class WormController_2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.U))
         {
-            bazooka.transform.Rotate(0, 0, -5, Space.Self);
+            bazooka.transform.Rotate(-5, 0, 0, Space.Self);
             Debug.Log("Button Input detected");
         }
 
         if (Input.GetKey(KeyCode.O))
         {
-            bazooka.transform.Rotate(0, 0, 5, Space.Self);
+            bazooka.transform.Rotate(5, 0, 0, Space.Self);
             Debug.Log("Button Input detected");
         }
 
