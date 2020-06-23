@@ -17,6 +17,9 @@ public class WormController_2 : MonoBehaviour
     public int health = 10;
     public Text healthText;
 
+    public Transform player;
+    public Transform respawnPoint;
+
     void Update()
     {
         //transform Player
@@ -44,7 +47,7 @@ public class WormController_2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.K))
         {
             GameObject sphere = Instantiate(weapon, bulletPosition.position, Quaternion.identity);
-            sphere.GetComponent<Rigidbody>().AddForce(bazooka.transform.up * shoot);
+            sphere.GetComponent<Rigidbody>().AddForce(bazooka.transform.forward * shoot);
         }
 
         if (Input.GetKey(KeyCode.U))
@@ -77,9 +80,9 @@ public class WormController_2 : MonoBehaviour
             Debug.Log("Andere Kollision");
         }
 
-        if (collision.gameObject.tag == "healthpackage")
+        if (collision.gameObject.tag == "Healthpackage")
         {
-            health = health + 2;
+            health = health + 10;
             Debug.Log("Healthpackage achieved");
             Destroy(collision.gameObject);
         }
@@ -92,6 +95,11 @@ public class WormController_2 : MonoBehaviour
     {
         healthText.text = "Health: " + health.ToString();
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        player.transform.position = respawnPoint.transform.position;
     }
 }
 

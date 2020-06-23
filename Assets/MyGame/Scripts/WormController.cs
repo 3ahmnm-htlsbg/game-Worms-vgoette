@@ -17,6 +17,9 @@ public class WormController : MonoBehaviour
     public int health = 10;
     public Text healthText;
 
+    public Transform player;
+    public Transform respawnPoint;
+
     void Update()
     {
         //transform Player
@@ -92,6 +95,11 @@ public class WormController : MonoBehaviour
     {
         healthText.text = "Health: " + health.ToString();
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        player.transform.position = respawnPoint.transform.position;
     }
 }
 
